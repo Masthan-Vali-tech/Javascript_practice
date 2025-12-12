@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <!-- <h1> I am event listner</h1> -->
+
+ <!-- <h1>I am double event listener</h1> -->
+  
+<input type="text" placeholder="enter your name"/>
+<script>
+
+  // ADD EVENT LISTNER:-
+
+  // let eve = document.querySelector("h1");
+
+  // eve.addEventListener("click", function () {
+  //   eve.style.color = "red";
+  // });
+
+  // console.dir(eve);
+
+
+
+
+
+//   let eve = document.querySelector("h1");
+
+//   eve.addEventListener("dblclick", function () {
+//     eve.style.color = "green";
+//   });
+// console.dir(eve);
+
+
+// REMOVE EVENT:-
+
+
+//  let eve = document.querySelector("h1");
+
+//   eve.removeEvent("dblclick", function () {
+//     eve.style.color = "green";
+//   });
+// console.dir(eve);
+
+// when you want to remove the event then you have to pass
+// same event what you have added.
+
+// input:-
+
+
+let inp = document.querySelector("input");
+inp.addEventListener("input",function(dets){
+  console.dir(dets.data)
+})
+// in an addeventlistenrt in function you can add details.
+// if we enter in input if we want bto get that data to print
+// reember that when you [passed details in function parameter]
+</script>
+
+    
+  </script>
+</body>
+</html>
