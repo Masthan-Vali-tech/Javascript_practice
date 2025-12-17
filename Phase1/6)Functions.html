@@ -1,0 +1,387 @@
+<!-- FUNCTIONS:- 
+function declaration, function expression and arrow function.
+parameters vs arguments.
+default, rest, and spread perameter
+Return values and Early returns
+First class functions(assign to variables, pass as arguments, return from other functions)
+Higher-order functions
+Pure vs impure functions
+Clousers and lexical scoping
+IIFE(immidiatly invoked function expression)
+Hoisting difference between Declaration and expression 
+
+COMMON CONFUSION:- 
+ Arrow vs regular function this context
+ function hoisting in TDZ
+ Scope chains and clousers.
+ 
+ MINDSET:- 
+  Functions = logic blocks + memory holders(clousers)
+
+
+  PRACTICE:- 
+  write a bmi calculator
+  Create a reusable  discount calkculator(HOF)
+  Build a counter using clousers.
+  create a pure function to transform a value
+  Use IIFE to isolate variables  
+<script>
+                function declaration :-
+
+              function add(a,b){
+                  console.log(a+b)
+                }add(2,3)
+
+                function expression:-
+                let add = function(a, b) {
+                    console.log(a + b);
+                }
+
+                add(2, 3);
+
+              Arrow function:-
+
+              let add  =(a,b)=>{
+                  console.log(a+b);
+
+              }
+               add(2,3)
+
+            Parameters: values we will sent to function body in the above a,b are parametrs.
+            Arguments: values we will pass at the time of calling are function Arguments.
+
+              Default Parameter: default parameter will allows a default value when no value is passed in arguments.
+
+              ex: function add(a,b=5){
+                      console.log(a+b);
+
+                   }
+                   add(3) here b value is e
+
+                   function add(a=5,b=5){
+                      console.log(a+b);
+
+                   }
+                   add(1,3)
+                      in case if we given default values and arguments then it takes arguments not default values.
+
+                  Rest Parameter:-
+
+                     when we pass infinite number of arguments then rest parameter will take them as
+                        an Array
+
+                        ex: function addAll(...numbers) {
+                let total = 0;
+
+                for (let n of numbers) {
+                  total += n;
+                }
+
+                console.log(total);
+              }
+
+              addAll(1, 2, 3, 4, 5, 5, 6, 7, 8);
+
+            Return: -return is used inside a function to send a value back to where the function was called.
+
+          It also stops the function immediately.
+
+          How return works
+
+          The function runs its code.
+
+          When it reaches return, the function:
+
+          Stops
+
+          Sends a value back to the caller.
+
+            function add(a, b) {
+              return a + b;
+            };
+
+            let result = add(5, 3);
+            console.log(result); //
+
+
+        What are First-Class Functions in JavaScript?**
+
+        In JavaScript, functions are treated like normal values (like numbers, strings, or objects).
+        This means you can:
+
+        Store functions in variables**
+        Pass functions as arguments to other functions**
+        Return functions from another function**
+        Keep functions inside arrays or objects**
+
+
+
+
+
+        Examples
+
+        Store a function in a variable
+
+
+        const greet = function() {
+          console.log("Hello");
+        };
+
+        greet();
+
+
+        Pass a function as an argument
+
+
+        function sayHello() {
+          console.log("Hello");
+        }
+
+        function greetUser(fn) {
+          fn(); // calling the function passed
+        }
+
+        greetUser(sayHello);
+
+
+        Return a function from another function
+
+
+        function outer() {
+          return function() {
+            console.log("Inner function");
+          };
+        }
+
+        const result = outer();
+        result();
+
+        Store functions inside objects
+
+
+        const obj = {
+          add: function(a, b) {
+            return a + b;
+          }
+        };
+
+        console.log(obj.add(3, 5));
+
+        Store functions inside an array
+
+
+        const arr = [
+          function() { console.log("A"); },
+          function() { console.log("B"); }
+        ];
+
+        arr[0]();
+        arr[1]();
+
+      HIGHER ORDER FUNCTIONS:-“Higher-order functions are functions that accept another function as an argument or return another function.
+
+
+        EX:- function abcd(val) {
+        console.log(val());
+      }
+
+      abcd(function() {
+        return "hello";
+      });
+
+
+    EX for return:-
+
+
+    function abcd(){
+        return function(){
+
+        }
+    }
+    abcd()
+
+
+
+  PURE VS IMPURE FUNCTIONS
+
+         Pure functions always return the same result for the same input and have no side effects.
+  Impure functions either change something outside the function or give different results for the same input.
+
+      function add(a, b) {
+    return a + b;
+  }
+
+  add(3, 4);  // always 7
+  add(3, 4);  // still 7
+
+
+  let count = 0;
+
+  function increment() {
+    count = count + 1;
+    return count;
+  }
+
+  increment();  // output changes every time
+
+Closure:-
+
+Closure is an inner function that can access variables from its outer function’s scope, even after the outer function has finished executing.**
+
+OR
+
+Closures are inner functions bundled together with their lexical scope.**
+
+function outer() {
+  let count = 0;
+
+  function inner() {
+    console.log(count); // accessing outer variable
+  }
+
+  return inner;
+}
+
+const fn = outer();
+fn();  // still prints 0 → closure
+
+
+IIFE:- An IIFE is a function in JavaScript that runs immediately after it is created.
+You define the function and call it at the same time.
+
+ ex:- (function(){
+
+ })();
+
+1) use rest parameter to accept any number of scores and return total
+       
+  function getscore(...score){
+
+    let total =0;
+    score.forEach(function(val){
+        total = total + val;
+    })
+    return total;
+  }
+      console.log( getscore(10,20,30,40,50))
+
+
+  2) fix the function using early return
+
+       function check age(age){
+        if (age>18){
+            console.log("too young");
+            
+        }else{
+            console.log("allowed");
+            
+        }
+
+       }
+
+
+
+
+    function checkage(age){
+        if (age<18) return "too young";
+        return "allowed"
+
+       } 
+        console.log( checkage(24))
+
+
+
+    Note: If a function doestnt return anything thjen it will return undefined
+
+       ex:- function f(){
+        return;
+       }
+          console.log(f());
+
+   3) can you assign a function to variable and return it
+
+    let a =function(c){
+          return c;
+    } 
+    
+     console.log(("vali"))
+
+4) pass a function into another function and execute it.
+
+       function abcd(){
+
+
+       }
+       abcd(function(){
+
+       })console.log("my name is masthan");
+
+
+
+  5) convert the given function into a pure function
+        let total =0;
+        function addTotal(num){
+            total+=num
+        }     
+
+
+        the out sid evalue total doesnt change 
+
+
+        let total =0;
+        function addTotal (num){
+            let newtotal = total;
+            newtotal +=num;
+        }
+
+6) what is clousure and when is it created 
+
+function abcd(){
+    let val =0;
+    return function (){
+        console.log(val);
+        
+    };
+}
+
+
+         when a function returns another function and it can
+          acess outer function value then it created
+
+
+7)  function outer(){
+    let count 0;
+
+    return function(){
+        count++;
+        console.log(count)
+    }
+}
+
+ const counter = outer();
+ counter();
+ counter();
+
+
+
+8)function abcd(){
+  let count =0
+  
+  return function(){
+    count++;
+    return count;
+  }
+}
+  let c =abcd();
+console.log(c());
+console.log(c());
+console.log(c());
+console.log(c());
+
+
+  let d=abcd();
+  console.log(d()); // here the value is one mean that for evry 
+  console.log(c())                //every function the value is refresh the value 
+                     is saved for different different for differntfuntion
+                        for the value for c() it is 5 it refernce to above  -->
+</script>  -->

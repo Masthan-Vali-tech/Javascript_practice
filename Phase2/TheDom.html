@@ -1,0 +1,496 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #h1{
+      text-transform: capitalize;
+    } */
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
+}
+   
+   html, body{
+      width: 100%;
+      height: 100%;
+    }
+
+     #main{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+       width: 100%;
+      height: 100%;
+background-color: #3c3b3b;
+
+    }
+
+h1{
+  color: #555;
+  font-size: 10rem;
+  font-weight: 300;
+  user-select: none;
+} */
+/* for mouse hover concept */
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
+} */
+
+/* div{
+      width: 100px;
+      height: 100px;
+      background-color: brown;
+    } */
+ 
+
+/* #abcd{
+  position :absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+} */
+/* this css is for event bubbling
+
+html,body{
+  width :100%;
+  height:100%;
+}
+
+body{
+  position: relative;
+  overflow: hidden;
+}
+
+#main{
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+}
+#nav {
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  background-color: #444;
+}
+
+a{
+  color: white !important;
+  
+}
+
+button{
+  padding: 12px 22px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.lt{
+  text-decoration: line-through;
+}
+
+capturing
+
+.a{
+  height: 400px;
+  width: 400px;
+  background-color: aqua;
+}
+
+.b{
+  height: 300px;
+  width: 300px;
+  background-color: rgb(144, 148, 148);
+}
+
+.c{
+  height: 200px;
+  width: 200px;
+  background-color: rgb(136, 10, 10);
+}
+  </style>
+</head>
+<body>
+  
+
+  <!-- <h1> I am event listner</h1> -->
+
+ <!-- <h1>I am double event listener</h1> -->
+  
+<!-- <input type="text" placeholder="enter your name"/> -->
+<!-- <h1 id ="device">select the device</h1>
+<select > 
+  <option selected disabled>choose device</option>
+  <option value="Samsung">samsung</option>
+  <option value="Apple">apple</option>
+  <option value="Nokia">nokia</option>
+  <option value="Moto">motorola</option>
+  <option value="MI">xiomi</option>
+</select> -->
+
+<!-- <div id = "main">
+   <h1>a</h1>
+</div>  key down concept--> 
+
+
+ <!-- <div id ="abcd">
+mousehover
+</div> 
+
+<form>
+  <input type="email">
+  <input type="password">
+  <input type="submit">
+</form> -
+
+ bubbling  -->
+
+<!-- <div id="main">
+  <div id = "nav">
+    <a href="">home</a><a href="">about</a><a href="">contactus</a>
+
+    <button>click and follow</button>
+  </div>
+  
+</div> 
+
+<!-- another example -->
+<!-- 
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Mango</li>
+  <li>Papaya</li>
+</ul> -->
+
+<!-- capturing example -->
+
+<!-- div.a>div.b>button{click me} -->
+
+
+ <!-- <div class="a">
+  <div class="b">
+    <div class="c">
+      <button>click me</button>
+    </div>
+  </div>
+ </div>
+<script>
+
+  ADD EVENT LISTNER:-
+
+  let eve = document.querySelector("h1");
+
+  eve.addEventListener("click", function () {
+    eve.style.color = "red";
+  });
+
+  console.dir(eve);
+
+
+
+
+
+  let eve = document.querySelector("h1");
+
+  eve.addEventListener("dblclick", function () {
+    eve.style.color = "green";
+  });
+console.dir(eve);
+
+
+REMOVE EVENT:-
+
+
+ let eve = document.querySelector("h1");
+
+  eve.removeEvent("dblclick", function () {
+    eve.style.color = "green";
+  });
+console.dir(eve); -->
+
+<!-- when you want to remove the event then you have to pass
+same event what you have added.
+
+input:-
+
+
+let inp = document.querySelector("input");
+inp.addEventListener("input",function(dets){
+
+  if(dets.data!==null){
+  console.dir(dets.data)
+  }
+})
+in an addeventlistenrt in function you can add details.
+if we enter in input if we want bto get that data to print
+reember that when you [passed details in function parameter]
+you can acess it like what you enter i n input that will come in out put lika harsha it will print 
+harsha  and when deleted or  bac  space it will creatw  avalue as data :null so you write if condition as shown.
+
+change:-- 
+  The change event fires when an input’s value is changed and the user moves away from the input (loses focus) or final selection is made.
+  User typing → event fire avadu
+User outside click chestē → event fire ayyi value print avuthundi.
+
+let sel = document.querySelector("select");
+let device = document.querySelector("#device")
+
+sel.addEventListener("change", function(dets){
+device.textContent = "device selected"
+if we want like sammung device selected then -->
+<!-- device.textContent = `${dets.target.value} Device selected`
+})
+
+
+let h1 = document.querySelector("h1");
+window.addEventListener("keydown", function(dets){
+  if(dets.key === " "){
+ h1.textContent = "spc"
+
+  }else{
+ h1.textContent = dets.key
+
+  }
+  
+})
+
+let abcd = document.querySelector("#abcd");
+abcd.addEventListener("mouseover", function(){
+  abcd.style.backgroundColor = "yellow";
+})
+
+abcd.addEventListener("mouseout", function(){
+  abcd.style.backgroundColor = "red";
+})
+let abcd = document.querySelector("#abcd")
+
+window.addEventListener("mousemove", function(dets){
+ abcd.style.top = dets.clientX + "px";
+ abcd.style.left = dets.clientY + "px";
+  // css is same as above concept
+})
+
+learn keyup from google.
+
+EVENT OBJECT: target,type,preventDefault.
+
+abcd.addEventListener("mouseout", function(dets){
+  abcd.style.backgroundColor = "red";
+}) when you passed the function parametr then the  data comes from console is event object wwhich contains target and tyope
+
+Event object in JavaScript is automatically passed to the event handler and contains details about the event.
+
+event.target
+The element on which the event actually happened.
+
+Syntax:
+event.target
+
+Example:
+
+button.addEventListener("click", function(event){
+  console.log(event.target);
+});
+
+
+event.type
+The name of the event that occurred.
+
+Syntax:
+event.type
+
+Example:
+
+button.addEventListener("click", function(event){
+  console.log(event.type); // click
+});
+
+
+event.preventDefault()
+Stops the browser’s default action for that event.
+
+Syntax:
+event.preventDefault()
+
+Example: -->
+
+<!-- let form = document.querySelector("form");
+form.addEventListener("submit", function(dets){
+  dets.preventDefault();
+})
+
+form.addEventListener("submit", function(event){
+  event.preventDefault();
+  console.log("Form submit stopped");
+});
+
+Eventbubbling and Capturing
+
+Event Bubbling:
+When an event happens on an element, it first checks that element.
+If no event listener is found, the event moves to its parent.
+If the parent also has no listener, it keeps moving upward until it reaches the document.
+
+document.querySelector("#nav").addEventListener("click", function(){
+  alert("clicked")
+})
+Here, the event listener is attached to the nav.
+When you click on the button inside the nav,
+the event first triggers on the button
+and then moves to its parent (nav).
+This happens because of event bubbling.
+
+
+let ul =document.querySelector("ul")
+ul.addEventListener("click", function(dets){
+  // dets.target.style.textDecoration="line-through"
+  dets.target.classList.toggle("lt")
+})
+
+here you can add classList also
+oggle will add if not exist remove if added
+
+Event Capturing:-
+
+let a = document.querySelector(".a");
+let b = document.querySelector(".b");
+let c = document.querySelector(".c");
+let btn = document.querySelector("button");
+
+btn.addEventListener("click", function () {
+  console.log("btn clicked");
+});
+
+c.addEventListener("click", function () {
+  console.log("c clicked");
+});
+
+a.addEventListener("click", function () {
+  console.log("a clicked");
+});
+b.addEventListener("click", function () {
+  console.log("b clicked");
+});
+
+In event bubbling, as shown in the example above,
+clicking the button does not trigger only the button’s event.
+The event also propagates to all parent elements
+that have event listeners attached.
+
+Event capturing.
+
+Whenever you click or any event is raised, the event flow runs in two phases.
+
+Phase 1 (Capturing phase):
+The event travels from the top-level element downwards to the target element.
+
+Phase 2 (Bubbling phase):
+The event travels from the target element upwards to its parent elements.
+
+Phase 1 always happens first,
+but by default it is turned off.
+If we enable it, then we get the Phase 1 (capturing) behavior.
+
+let a = document.querySelector(".a");
+let b = document.querySelector(".b");
+let c = document.querySelector(".c");
+let btn = document.querySelector("button");
+
+btn.addEventListener("click", function () {
+  console.log("btn clicked");
+});
+
+c.addEventListener("click", function () {
+  console.log("c clicked");
+}, true);
+
+a.addEventListener("click", function () {
+  console.log("a clicked");
+});
+
+b.addEventListener("click", function () {
+  console.log("b clicked");
+}, true);
+
+
+## 4️⃣ How event flow works here (step by step)
+
+### 🔹 Step 1: Capturing Phase starts (top → target)
+
+Capturing runs only where `true` is enabled.
+
+Order checked:
+
+```
+document → a → b → c → button
+```
+
+a → ❌ capturing NOT enabled → skipped
+b → ✅ capturing enabled → "b clicked"
+c → ✅ capturing enabled → "c clicked"
+button → ❌ no capturing → skipped
+
+---
+
+### Step 2: Target Phase
+
+Button click event runs:
+
+```
+btn clicked
+```
+
+---
+
+### Step 3: Bubbling Phase (target → top)
+
+Now bubbling starts and checks only bubbling listeners.
+
+Order:
+
+
+button → c → b → a
+
+
+c → ❌ bubbling listener not added → skipped
+b → ❌ bubbling listener not added → skipped
+a → ✅ bubbling listener exists → "a clicked"
+
+---
+
+ 5️⃣ Final Console Output Order 🧾
+
+b clicked      // capturing
+c clicked      // capturing
+btn clicked    // target
+a clicked      // bubbling
+
+
+## 6️⃣ One-line rule to remember 🧠
+
+First: Capturing phase runs (only where `true` is set)
+Then: Target event runs
+Then: Bubbling phase runs (default behavior)
+
+Event delegation means adding one event listener to a parent element to handle events of its child elements, and it works using event bubbling.
+
+👉 No need to pass true (capturing) for event delegation.
+
+
+its default behavior
+</script>
+
+    
+ 
+</body>
+</html> --> 

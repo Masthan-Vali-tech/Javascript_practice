@@ -1,0 +1,222 @@
+<!-- 
+Object defnition
+key-value structure.
+Dot vs Bracket.
+Nesting and deep acess.
+object destructing.
+Looping: for-in,Object.keys, Object.entries 
+copieng objects: spread, Object.assign ,deep clone.
+Optional chaining, computed properties.
+
+
+Objects:- n JavaScript, an object is a collection of key–value pairs.
+Each value can be anything: number, string, array, function, another object, etc.
+
+Objects help us store structured data in a single place.
+
+
+Syntax:-let person = {
+  name: "Masthan",
+  age: 33,
+  city: "Mumbai"
+};
+
+Accessing values:
+
+ console.log(person.name);      // Dot notation
+console.log(person["city"]);   // Bracket notation
+
+Adding new properties:-
+     
+person.job = "Developer";
+person["weight"] = 75;
+
+Updating values:
+      person.age = 34;
+
+      Deleting a property:-
+          delete person.city;
+
+          <script>
+
+let person = {
+  name: "Masthan",
+  age: 33,
+  city: "Mumbai"
+};
+
+let aa ="name"
+
+obj.aa will not given the ans if you think aa will convert
+obj[aa] aa will convert to name and name inside obj.
+
+
+nesting and deep object.
+
+let person = {
+   name: "Masthan",
+   age: 33,
+ address:{
+   city: "Mumbai",
+  location:{
+    lat:23.9,
+    lan:33.4
+  }
+}
+};
+
+console.log(person);
+
+To Acess deep object "person.address.location.lat"
+23.9
+
+NOTE:- WHEN EVER TO GOT THE ERROE  LIKE this
+       "VM372:1 Uncaught TypeError: Cannot read properties of undefined (reading 'lat')"
+        THEN THE ERROR IS NOT FROM LAT ITS FROM PROPERTY BEFORE VALUE HERE IT IS FROM 
+        LOCATIONS.
+
+OBJECT DESTRUCTRING:-
+
+  let person = {
+   name: "Masthan",
+   age: 33,
+ address:{
+   city: "Mumbai",
+  location:{
+    lat:23.9,
+    lan:33.4
+  }
+}
+};
+
+let {lat,lan} = person.address.location. 
+
+LOOPING:- for-in, Object.keys.Object.entries,
+
+let obj ={
+    name :"masthan",
+    age:33,
+    work : "software"
+};
+
+for(let key in obj){
+    console.log(key,obj[key]);
+    
+}
+
+generally we know that if we want to acess any value from 
+object we will wrire like obj.name etc etc but in looping we cant write like that
+here we use obj.key also it not give ans so we write like 
+obj[key] it prints only values if you want key also 
+you can write like " console.log(key, obj[key])"
+
+
+Object.keys:- it will covert all keys of onject into Array
+
+ let obj ={
+    name :"masthan",
+    age:33,
+    work : "software"
+};
+console.log(Object.keys(obj));// ['name', 'age', 'work']
+
+
+Object.entries:- it will conerts evert key value pair ibn to single single Array
+
+
+['name', 'masthan'], ['age', 33], ['work', 'software']
+
+copying objects:
+
+  let obj ={
+    name :"masthan",
+    age:33,
+    work : "software"
+};
+
+console.log(obj)
+
+let obj2 = Object.assign({price:23},obj)
+console.log(obj2);
+
+let obj ={
+    name :"masthan",
+    age:33,
+    work : "software",
+    address:{
+        city:"Nellore",
+        mainAdress:{
+     dno: 24-4
+        }
+    }
+};
+
+let obj2 = {...obj}
+console.log(obj2)
+ Shallow copy: when we copy the elements by using shallow copy means like 
+ by using spread operater  or object.assing it will it will change first layer of object only so when you 
+ change values from copied object it will change the original object also changed .
+
+ Deep copy: in deeo copy it will change full object including nested objects also. 
+
+let obj ={
+    name :"masthan",
+    age:33,
+    work : "software",
+    address:{
+        city:"Nellore",
+        mainAdress:{
+     dno: 24-4
+        }
+    }
+};
+
+let obj2=JSON.parse(JSON.stringify(obj))
+console.log(obj2);
+
+
+Optional chaining and computed properties:
+
+obj ={
+    name :"masthan",
+    age:33,
+    work : "software",
+    address:{
+        city:"Nellore",
+        mainAdress:{
+     dno: 24-4
+        }
+    }
+};
+
+if some property may not exist or if you write adress as adres 
+then it throws error . 
+ so you can use optional chaining.address
+
+ obj.addres?.city
+
+ Computed Properties means:
+
+ Creating object keys dynamically using a variable or expression instead of writing the key directly.
+
+In simple words:
+“Key name dynamic ga create ayye object property.”
+
+ let role ="admin"
+obj ={
+    name :"masthan",
+    age:33,
+    work : "software",
+    address:{
+        city:"Nellore",
+        mainAdress:{
+     dno: 24-4
+        }
+    },
+    [role]: "vali"
+};
+
+console.log(obj.admin);
+
+
+</script> -->

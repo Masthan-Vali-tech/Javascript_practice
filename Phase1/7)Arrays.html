@@ -1,0 +1,555 @@
+<!-- 
+Array:-
+
+In JavaScript, an array is a data structure that stores multiple values in a single variable in an ordered way.
+The index starts from 0
+
+* We create an array using square brackets `[]`
+* Each value has an index.
+* Arrays can store any type of value (numbers, strings, booleans, objects, functions, etc.).
+
+Example
+
+let arr = [10, "masthan", true, { age: 33 }];
+console.log(arr[1]); // "masthan"
+<script>
+
+   let Array =[1,2,3,4,5,6,7]
+   console.log(Array);
+
+    let Array1=[3,4,2,5,8,7,0,9,11]
+    console.log(Array1);
+
+    Array.pop():- removes the last  element from  an Array.
+    Array.push(value):-Adds the given value to an Array at end of an Array.
+    Array.shift():-Removes the elemt from staring of an Array.
+    Array.unshift(value):- Adds the element from Staring of an Array.
+    Array.splice(1(start at index 1),3(Remove 3 elements)):-
+             it will returns a new Arrays with selected values and it changes the original Array .
+             it works on principle from where to how many values
+    Array.slice(1(start at indes 1),3(End at index 3 (notr include 3))) it also returns new Array
+                but original Array does not change.it works on principal from which index to n-1 index.
+
+   NOTE:- splice removes values from the original array (it changes the array).
+slice extracts values without changing the original array (it returns a new array).
+       
+      Array.reverse(): reverse the Arrays values. 
+       
+    let Array =[2,4,1,88,234,65,87,367]
+      console.log(Array);
+
+      Array.sort():- it takes a function with retun and  arrage elements ascending or decendoing order.
+                  
+      syn:-    Array.sort(function(a,b){
+                   return a-b
+                 })
+
+        let Array =[1,2,3,4,5,3,6,7,8];
+            Array.forEach(function(val){
+                 console.log( val+6)
+                  })
+
+     forEach(): it will execute a execute a given function on all elements 
+                and doesnt  reurns a  Array it doest change original Array. 
+
+        Array.map(function(val){
+               return val*12
+                   })      [12, 24, 36, 48, 60, 72, 84, 96]
+  NOTE: Map,filter, reduce find ,etc when return somsthing so save it in a variable 
+in below iwe have not saved for opractice time you have to save.
+    Map():-Runs a function on each element and returns a new array with transformed values.
+
+          Array.map(function(val){
+            return 12
+               })
+                   [12, 12, 12, 12, 12, 12, 12, 12]
+
+                   Map: map will execute a provided function on each elemnt and returns an updated Array  
+                         it not change original Array. 
+
+                         NOTE:- map must be retun (we should use return),if it doesnt return 
+                                anything it returns undefined.
+
+                Masthan, here is the **short, clear, interview-style** answer you want:
+
+---
+
+Return values: 
+
+map() returns
+A NEW array
+Each element is the returned value from your callback.
+
+Example:
+
+
+let res = [1,2,3].map(v => v * 2);
+console.log(res); // [2,4,6]
+
+
+
+
+forEach() returns
+
+undefined
+Always.
+It never returns anything useful.
+
+Example:
+
+let res = [1,2,3].forEach(v => v * 2);
+console.log(res); // undefined
+
+
+
+map → returns a new array
+
+forEach → returns nothing (undefined)
+
+map → values ni store చేసుకోవచ్చు
+
+Because map returns a NEW array.
+
+forEach → values ni store చేసుకోలేం
+
+Because forEach returns nothing (undefined).
+
+
+ FILTER():- filter will execute a provided function on each element of 
+          an Array and returns an Array which satisfy the given condition.Array
+
+         Array.filter(function(val){
+
+            return val>4
+         })
+
+REDUCE:- reduce() executes a provided function on each element of the array and returns one single accumulated value.
+        
+     let Arry1 =   Array.reduce(function(accumulater,val){
+    return accumulater+val
+},16) 
+    console.log(Arry1)
+
+    here accumulater is previou value or initial value if we give it as 16
+    its value ids 16 plus given values. 
+
+
+
+    FIND():-find() is an array method that returns the first element that matches a condition.
+
+If no element matches, it returns undefined.
+
+
+  let Array =[1,2,3,4,5,3,6,7, 4,6, 3 ,7 ]
+  console.log(Array);
+  
+  Array.find(function(val){
+     return val===4
+    
+})
+        
+
+        let arr =[
+            
+        {id:1,key:1},
+        {id:2,key:2},
+        {id:3,key:1},
+
+        ]
+
+        let va=arr.find(function(val){
+            return  val.key ===1
+
+        })
+        console.log(va);
+
+    
+
+
+
+1. some()
+
+Meaning
+
+some() returns **true** if **at least ONE** element matches the condition.
+
+ Example:
+
+
+let arr = [10, 20, 30, 40];
+
+let result = arr.some(function(val){
+   return  val > 25
+
+});
+   console.log(result)
+
+ Output:
+
+
+true
+
+
+Because 30 and 40 are > 25
+(one match is enough)
+
+---
+
+2. every()
+
+Meaning
+
+every() returns **true** only if **ALL** elements match the condition.
+
+ Example:
+
+
+let arr = [10, 20, 30, 40];
+
+let result = arr.every(function(val){
+   return  val > 25
+
+});
+   console.log(result)
+
+
+   VERY VERY IMP NOTE:-
+
+   
+This happens because of how return works** inside every().
+
+
+
+Why console.log inside the callback does NOT work?
+
+Because your code is written like this:
+
+
+let result = arr.every(function(val){
+   return val > 25
+   console.log(val)   // ❌ This line will NEVER run
+});
+
+
+ Reason:
+
+return immediately ends the function.
+Any code written after return will never execute.
+
+So:
+
+ `return val > 25` → function stops
+ `console.log(val)` is ignored
+
+This is why you don't see output.
+
+---
+
+# ❌ Wrong Code (your second example)
+
+
+let result = arr.every(function(val){
+   return val > 25
+   console.log(result) // unreachable
+});
+
+
+This is syntactically wrong and logically unreachable.
+
+
+
+Correct Way: console.log INSIDE and BEFORE return
+
+If you want console.log to run inside, put it before return.
+
+
+let arr = [10, 20, 30, 40];
+
+let result = arr.every(function(val){
+   console.log("checking:", val);
+   return val > 25;
+});
+
+console.log("Final:", result);
+
+Output:
+
+checking: 10
+Final: false
+
+
+
+
+Why console.log OUTSIDE works?
+
+Because when you write:
+
+
+console.log(result);
+
+It prints whatever every() returned.
+
+ If all values match → true
+ If any value fails → false
+
+This is normal expected behavior.
+
+ Super Simple Explanation
+
+Any code after `return` will never execute
+ That’s why `console.log` inside your callback wasn't printing
+Place console.log BEFORE return** to make it work
+
+
+
+Want me to explain how **return stops execution** visually with a diagram?
+
+
+Output:
+
+false
+
+Because 10 and 20 are NOT > 25
+(all must be true — but they are not)
+
+
+some = at least one
+every = all
+
+
+        DESTRUCRING:-
+
+        let Arr =[1,2,3,4,5,6];
+
+        let[a,b,c,,f] = Arr
+          In array destructiring when you want to skip values we just leave it with ",".
+
+        let Array1 =[1,2,3,4,5,6,7];
+        
+        let Array2 =Array1
+        Array2[1]=3
+        console.log(Array2)
+        console.log(Array1);
+
+        inthe above if we copy the arays in above way it will copy refernce only 
+         not fully copied so we use spread operator
+
+          let Array1 =[1,2,3,4,5,6,7];
+          let Array2=[...Array1]
+          Array2[0]=2
+
+    here Array1 and Array2 values are differ
+        
+        QUESTIONS.
+        1) CREATE THE ARRY WITH 3 FRUITS AND PRINT THE 2ND FRUIT
+
+           let fruits = ["Apple","Mango","Banana"]
+
+           console.log(fruits[1]);
+
+        2)Add "guava" at the end and "pineapple at the begining"
+
+           let fruits = ["Apple","Mango","Banana"]
+           fruits.push("guava");
+           fruits.unshift("pineapple")
+           console.log(fruits);
+           
+        3)Replace banana with kiwi in the above.Replace
+            
+        let fruits = ["Apple","Mango","Banana"]
+            fruits[2]="kiwi"
+            console.log(fruits);
+            
+        4) difference between push() and unshift()
+
+        5) Remove the last item from this Array using a methode
+
+           let num=[1,2,3]
+           num.pop()
+           console.log(num);
+
+        6) Insert Red and Blue from this Array
+
+          let colore =["green","yellow"]
+          colore.splice(1,0,"Red","Blue")
+          console.log(colore);
+
+        Note:- we know that splice is used to remove from which index and how many but we can add elements at perticular 
+              index by using splice by giving index number and how ma ny we will give 0.
+          
+            7) extract only the middle 3 elements from the array
+                 
+                   
+                   let items =[1,2,3,4,5,6];
+              let newArray = items.splice(1,3);
+                   console.log(newArray);
+
+                   we can use slice or splice
+                  
+            
+            8) sort this array alphabetically and then reverse ImageTrack
+
+               let names= ["Zara","Arjun","Mira","Bhavya"];
+
+               let newArray = names.sort().reverse()
+
+               console.log(newArray);
+
+
+               Note:- we know that if we want to sort asecnding or decending 
+                we will give a-b or b-a but when setting with alphabetical we no need to pass 
+                any function just give emptry sort it automatically sorts alpgabetical.
+               
+
+        9) use .map() to square a number
+
+        let arr =[1,2,3,4]
+
+        let newArray = arr.map(function(val){
+            return  val* val
+        })
+
+        console.log(newArray)
+
+        10) use .filter() to keep numbers greater than 10.
+
+            let arr =[13,3,4,15,16,98,43,1,2,6,35]
+
+             let newarray = arr.filter(function(val){
+                       
+                return val>10
+
+             })
+             console.log(newarray);
+
+
+    11) use reduce() to find the sum of this array;
+
+         let arr =[10,20,30];
+
+         let sum = arr.reduce(function(accumulater,val){
+
+            return accumulater + val
+         })
+
+          console.log(sum)
+
+        12)use .find() to get the first number less than 10;
+
+        let arr =[12,15,3,8,20];
+        let ans =arr.find(function(val) {
+            return val<10;
+        })
+        console.log(ans);
+
+        13) use .some() if any student has scotred below 35
+
+            let arr = [45,60,28,90];
+           let ans= arr.some(function(val){
+
+                return val<35
+            })
+        console.log(ans); // true
+
+        14) use .every() to check if all numbers are even or not
+         
+           let Array = [2,4,6,8,10]
+
+           let newArray = Array.every(function(val){
+
+             return val%2===0
+           })
+
+           console.log(newArray);// true
+
+        15) Destructure this array to get firstName and lastName from the Array
+           
+             let fullName = ["masthan","vali"];
+
+             let[firstname,lastname]= fullName;
+             console.log(firstname);
+             console.log(lastname);
+             
+   16) Merge two arrys using spread operater.
+
+       let a=[1,2];
+       let b=[3,4,];
+       let c=[...a,...b]
+       console.log(c);
+
+    17)Add "india to the start of Array using spread"
+       
+          let countries = ["USA","Uk"];
+          countries =["India",...countries];
+          console.log(countries);
+
+        18) clone this Array properly (not by reference).
+
+               let arr =[1,2,3];
+               let arr2=[...arr];
+               console.log(arr2);
+            
+Sorting Numbers vs Sorting Strings in JavaScript
+
+1. Sorting Numbers
+
+When the array contains **numbers**, you must use a **compare function**, otherwise JavaScript converts numbers to strings and sorts wrongly.
+
+ Example:
+
+
+let arr = [1, 2, 3, 4];
+
+arr.sort(function(a, b) {
+  return b - a;   // Descending
+});
+
+
+ This gives correct numeric sorting.
+Without the function, numeric sorting fails (10 comes before 2).
+
+
+
+2. Sorting Strings**
+
+When the array contains **strings**, normal `.sort()` is enough.
+ Example:
+
+
+let arr = ["masthan", "zenex", "vision"];
+
+arr.sort();  
+
+
+✔ JavaScript sorts strings alphabetically by default
+✔ No need for compare function
+
+
+
+Simple Rule
+
+Numbers → always use compare function
+Strings → default sort() is enough
+
+
+ Example Output
+
+Number sort:
+
+
+[4, 3, 2, 1]
+
+
+String sort:
+
+
+["masthan", "vision", "zenex"]
+
+
+
+
+If you want, I can also explain **case-insensitive string sorting** or **sorting array of objects**.
+
+
+             
+</script> -->

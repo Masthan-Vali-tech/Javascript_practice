@@ -1,0 +1,81 @@
+<script>
+  // if, else-if,else
+
+  //   syntax: if(condition){
+  //     statement
+  //   }else{
+  //     statement
+  //   }
+
+  //   1) if condition is true  if part will be run if conditon is false else part will be for truthy value
+//     if will be run for falsy value else will be run
+
+//     switch:
+//         syntax:switch(){
+//           case1:
+//           statement;
+//           break;
+//           case2:
+//           statement;
+//           break;
+//         }
+//         Note: if we not include break it will not stop at condition it will execute the next condition even though
+//         previous conditon true.
+
+//     Early return statement:
+//                 Early return statement means we will not use block ilike if-else syntax
+//                 we just use retun statement.
+
+//                 function val(){
+//                   if(val>50) return"A";
+//                   else if(val>70) return"B";
+//                   else if(val>80) return"C";
+//                   else return"Not matched"
+//                 }
+
+//       Ex:1 write a function getGrade(score) thatv takes a student marks (0-100)
+//       returns the grade based on this logic 90-100 A+, 80-89 A, 70-79 B, 60-69 C,
+//       33-59 D, 0-32 Fail.
+
+//       function getGrade(score){
+//       if(score>=90 &&  score<=100){
+
+//         return "Grade:A+";
+//         }
+//       else if(score >=80 && score<=89){
+//             return "Grade:A";
+
+//       }
+//       else if(score >=70 && score<=79){
+//             return "Grade:B";
+
+//       }
+//        else if(score >=60 && score<=69){
+//              return "Grade:C";
+
+//        }
+//        else if(score >=33 && score<=59){
+//              return "Grade:D";
+
+//        }
+//        else if(score >=0 && score<=32){
+//              return "Fail";
+
+//        }
+
+//     }console.log(getGrade(0))
+
+
+//   ROCK_SCISSOR_PAPER
+
+//   function rps(user,computer){
+  
+//   if(user === computer) return "draw";
+//   if(user === "rock" && computer === "scissor") return "user";
+//   if(user === "scissor" && computer === "paper") return "user";
+//   if(user === "paper" && computer === "rock")  return "user";
+  
+//   return "computer"
+// }
+// console.log(rps("paper","scissor"));
+</script>
